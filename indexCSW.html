@@ -1,47 +1,25 @@
 <!doctype html>
 <html lang="en">
+<!--  ######################### head ############################ -->
 <head>
 <meta charset="utf-8">
 <link href="css/bootstrap.css" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/opencsw-api.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+
+
 <script language="Javascript">
 
-
-/*debug
-$(document).ready(function(){
-$("#wum").click(function(){
-
-var flickerAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSWantiword/";
-$.getJSON(flickerAPI, function(data) {
-  $('#getJSON-results').html(JSON.stringify(data));
-});
-
-});
-});
-*/
-
-
-$(document).ready(function(){
-    //attach a jQuery live event to the button
-    $("#button1").on("click", function(){
-    
-    	$("#nav_search")
-    		var pkgname = $("#pkgname_search").val();
-    		var opencswAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSW" + pkgname +"/";
-        		$.getJSON(opencswAPI, function(data) {
-        			$("#stage").html("<div> Name : " + data.maintainer_full_name + "</div>");
-        			$("#stage").append("<a> Email : "  + data.maintainer_email + "</a");
-        			$("#stage").append("<div> Basename : " + data.basename + "</div>");
-        			$("#stage").append("<div> Version : " + data.version_string + "</div>");
-        		});
-            });
-        });
 
 </script>
 
 </head>
+
+<!--  ######################### body ############################ -->
+
 <body>
 
 <form class="navbar-search pull-left">
@@ -55,11 +33,20 @@ $(document).ready(function(){
 </div>
 
 
-<div>
-<div id="stage">
+<div class="row-fluid">
+	<div class="col-sm-4">
+		<div id="stageA"></div>
+		<div id="stageB"></div>
+		<div id="stageC"></div>
+	</div>
+	<div class="col-sm-4">
+		<div id="stageD"></div>
+		<div id="stageE"></div>
+		<div id="stage2A"></div>
+		<div id="stage2B"></div>
+	</div>
+</div>
 
-</div>
-</div>
 
 </body>
 </html>
