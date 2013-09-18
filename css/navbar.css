@@ -1,0 +1,21 @@
+.navbar-brand {
+  color: #343434;
+  display: block;
+  font-weight: 500;
+  margin-left: 0px;
+  margin-right: 0px;
+  max-width: 200px;
+  padding: 0px;
+  text-align: center;
+  padding: 5px 5px;
+  font-size: 10px;
+  line-height: 20px;
+}
+
+@media (min-width:768px) {
+	.navbar-brand {
+		background-image: ("/bootstrap/img/unicorn.png");
+		height: 200px;
+		position: fixed;
+		width: 200px;
+		z-index: 99;

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script language="Javascript">
+
+
+/*debug
+$(document).ready(function(){
+$("#wum").click(function(){
+
+var flickerAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSWantiword/";
+$.getJSON(flickerAPI, function(data) {
+  $('#getJSON-results').html(JSON.stringify(data));
+});
+
+});
+});
+*/
+
+
+$(document).ready(function(){
+    //attach a jQuery live event to the button
+    $("#button1").on("click", function(){
+    
+    	$("#nav_search")
+    		var pkgname = $("#pkgname_search").val();
+    		var opencswAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSW" + pkgname +"/";
+        		$.getJSON(opencswAPI, function(data) {
+        			$("#stage").html("<div> Name : " + data.maintainer_full_name + "</div>");
+        			$("#stage").append("<a> Email : "  + data.maintainer_email + "</a");
+        			$("#stage").append("<div> Basename : " + data.basename + "</div>");
+        			$("#stage").append("<div> Version : " + data.version_string + "</div>");
+        		});
+            });
+        });
+
+</script>
+
+</head>
+<body>
+
+<form class="navbar-search pull-left">
+   <input type="text" class="search-query" placeholder="Search" id="pkgname_search" >
+</form>
+
+
+
+<div id="button1">
+<a class="btn btn-primary"> Request Package Information </a>
+</div>
+
+
+<div>
+<div id="stage">
+
+</div>
+</div>
+
+</body>
+</html>
