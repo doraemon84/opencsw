@@ -4,8 +4,8 @@
 $(document).ready(function(){
 $("#wum").click(function(){
 
-var flickerAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSWantiword/";
-$.getJSON(flickerAPI, function(data) {
+var opencswAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSWantiword/";
+$.getJSON(opencswAPI, function(data) {
   $('#getJSON-results').html(JSON.stringify(data));
 });
 
@@ -21,10 +21,20 @@ $(document).ready(function(){
     		var pkgname = $("#pkgname_search").val();
     		var opencswAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/sparc/SunOS5.10/pkgnames/CSW" + pkgname +"/";
         		$.getJSON(opencswAPI, function(data) {
-        			$("#stage").html("<div> Name : " + data.maintainer_full_name + "</div>");
-        			$("#stage").append("<a> Email : "  + data.maintainer_email + "</a");
-        			$("#stage").append("<div> Basename : " + data.basename + "</div>");
-        			$("#stage").append("<div> Version : " + data.version_string + "</div>");
+        		
+        		
+        			$("#stageA").html("<h3>"+ data.pkgname + "</h3><h4>" + data.osrel + "</h4>");
+        			$("#stageB").html("<b>Maintainer</b> : " + data.maintainer_full_name + "");
+        			$("#stageC").html("<b>Email</b> : <a>" + data.maintainer_email +"</a>");
+        			$("#stageD").html("<br><b> Architecture</b> : "  + data.arch + "</br>");
+        			$("#stageE").html("<span> Version : " + data.version_string + "</span>");
+        			//SunOS 5.10 // i386 & sparc
+        			var opencswAPI = "http://buildfarm.opencsw.org/pkgdb/rest/catalogs/unstable/i386/SunOS5.10/pkgnames/CSW" + pkgname +"/";
+        			$.getJSON(opencswAPI, function(data) {
+         			$("#stage2A").html("<br><b>Architecture</b> : "  + data.arch + "</br>");
+        			$("#stage2B").html("<p> Version : " + data.version_string + "</p>");
+        			});
+        			
         	});
       });
 });
