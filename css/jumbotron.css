@@ -1,8 +1,13 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
+
+.jumbotron {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	}
 
 /* When the body has the loading class, we turn
    the scrollbar off with overflow:hidden */
@@ -21,10 +26,14 @@ body.loading .modal {
 }
 		
 .colcustom1{
-	width: 100%;
+	width: 50%;
+	height: 600px;
+	background-color: #
 }	
 .colcustom2{
-	width: 100%;
+	width: 40%;
+	height: 300px;
+	margin-top: 30px;
 }
 .background-img{
 	background-image: url("img/Green.jpg");
