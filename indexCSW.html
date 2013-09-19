@@ -6,12 +6,46 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-modalmanager.js"></script>
 <script src="js/opencsw-api.js"></script>
+<script src="js/jquery.js"></script>
 <script type="text/javascript" src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
-
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-modal-bs3patch.css" rel="stylesheet">
+<link href="css/bootstrap-modal.css" rel="stylesheet">
 
 <script language="Javascript">
+
+
+var $modal = $('#ajax-modal');
+ 
+$('.ajax .demo').on('click', function(){
+// create the backdrop and wait for next modal to be triggered
+$('body').modalmanager('loading');
+ 
+setTimeout(function(){
+$modal.load('modal_ajax_test.html', '', function(){
+$modal.modal();
+});
+}, 1000);
+});
+ 
+$modal.on('click', '.update', function(){
+$modal.modal('loading');
+setTimeout(function(){
+$modal
+.modal('loading')
+.find('.modal-body')
+.prepend('<div class="alert alert-info fade in">' +
+'Updated!<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+'</div>');
+}, 1000);
+});
 
 
 </script>
@@ -46,6 +80,15 @@
 		<div id="stage2B"></div>
 	</div>
 </div>
+
+ <div class="ajax" style="position: relative; overflow: hidden">
+            <h3>AJAX (via jQuery.load)</h3>
+            <pre class="pre-scrollable prettyprint linenums" data-source="#ajax">
+            </pre>
+            <div class="text-center">
+            <button class="demo btn btn-primary btn-lg" id="demo" data-toggle="modal">View Demo</button>
+            </div>
+          </div>
 
 
 </body>
